@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seel_book_app/src/logic_app/models/Book.dart';
+import 'package:seel_book_app/src/views/screen/book/book_detail.dart';
 class BookCard extends StatelessWidget {
   Book book;
   BookCard(this.book);
@@ -36,7 +37,7 @@ class BookCard extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 image: DecorationImage(
-                    fit: BoxFit.cover, image: AssetImage("assets/images/category_test.png"))),
+                    fit: BoxFit.cover, image: AssetImage(this.book.cover_image))),
           ),
           SizedBox(
             width: 10,
@@ -118,7 +119,9 @@ class BookCard extends StatelessWidget {
                   FlatButton(
                     padding: EdgeInsets.all(5),
                     color: Colors.amber,
-                      onPressed: (){},
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetail(this.book)));
+                      },
                       child: Text("Details",style: TextStyle(
                           fontSize: 15,
                           color: Colors.white,

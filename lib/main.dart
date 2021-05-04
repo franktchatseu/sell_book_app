@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seel_book_app/src/logic_app/models/Book.dart';
-import 'package:seel_book_app/src/views/screen/book/book_card.dart';
-import 'package:seel_book_app/src/views/screen/book/book_detail.dart';
-import 'package:seel_book_app/src/views/screen/category/category_card.dart';
+import 'package:seel_book_app/src/views/screen/category/categories_list.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,12 +11,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Home Page'),
+      routes: <String, WidgetBuilder>{
+        '/mbolo_app': (BuildContext context) => MyApp(),
+        '/main_categories': (BuildContext context) => CategoryList(),
+        '/category_detail': (BuildContext context) => CategoryList(),
+
+      },
     );
   }
 }
@@ -34,14 +39,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 Book bookTEst = new Book(1, "Scian book", "Frank Tchatseu", "Cambridge", 120, 4, 500, 20, "assets/images/category_test.png");
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,14 +50,9 @@ Book bookTEst = new Book(1, "Scian book", "Frank Tchatseu", "Cambridge", 120, 4,
       ),
       body: SafeArea(
         child: Center(
-          child: BookDetail(this.bookTEst),
+          child: CategoryList(),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
