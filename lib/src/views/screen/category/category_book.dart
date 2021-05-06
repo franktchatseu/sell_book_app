@@ -1,7 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seel_book_app/src/logic_app/models/Book.dart';
+import 'package:seel_book_app/src/logic_app/models/article_panier.dart';
+import 'package:seel_book_app/src/views/screen/articles/panier_article.dart';
 import 'package:seel_book_app/src/views/screen/book/book_card.dart';
 import 'package:seel_book_app/src/views/screen/category/category_card.dart';
+import 'package:seel_book_app/src/views/utils/panier_action.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class CategoryBook extends StatefulWidget {
 
   int category_id;
@@ -30,12 +35,17 @@ class _CategoryBookState extends State<CategoryBook> {
       "cover_image":"assets/images/categories/2.jpg",
       "name":"Histoire"
     },
+    {
+      "id":3,
+      "cover_image":"assets/images/categories/1.jpg",
+      "name":"Francais"
+    },
   ];
   List<Book> listBooks = [
     new Book(1, "Anaconda", "Frank tchatseu", "coll 41", 1, 5, 200, 4, "assets/images/category_test.png"),
     new Book(2, "Nucleaire", "Nguefack", "Act22", 5, 3, 300, 3, "assets/images/categories/1.jpg"),
-    new Book(1, "Tom Fleur", "Frank tchatseu", "coll 41", 1, 5, 200, 4, "assets/images/categories/4.jpg"),
-    new Book(2, "Tiji Team", "Nguefack", "Act22", 5, 3, 300, 3, "assets/images/categories/6.png")
+    new Book(3, "Tom Fleur", "Frank tchatseu", "coll 41", 1, 5, 200, 4, "assets/images/categories/4.jpg"),
+    new Book(4, "Tiji Team", "Nguefack", "Act22", 5, 3, 300, 3, "assets/images/categories/6.png")
   ];
 
   @override
@@ -43,6 +53,9 @@ class _CategoryBookState extends State<CategoryBook> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.category_name),
+        actions: [
+          PanierActionUI()
+        ],
       ),
       body: CustomScrollView(
         //very very important in order to be careful with some bug

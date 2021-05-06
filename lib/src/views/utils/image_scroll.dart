@@ -10,14 +10,7 @@ class ImageScroll extends StatefulWidget {
 
 class _ImageScrollState extends State<ImageScroll> {
   int imageIndex = 0;
-  List<dynamic> dataImage =[
-    {
-      "image":"assets/images/category_test.png",
-    },
-    {
-      "image":"assets/images/category_test.png",
-    },
-  ];
+
   void _previousImage() {
     setState(() {
       this.imageIndex > 0
@@ -28,7 +21,7 @@ class _ImageScrollState extends State<ImageScroll> {
 
   void _NextImage() {
     setState(() {
-      this.imageIndex < this.dataImage.length - 1
+      this.imageIndex < widget.dataImage.length - 1
           ? this.imageIndex = this.imageIndex + 1
           : this.imageIndex = this.imageIndex;
     });
@@ -62,7 +55,7 @@ class _ImageScrollState extends State<ImageScroll> {
             child: Align(
                 alignment: Alignment.bottomCenter,
                 child: SelectedImage(
-                    numberOfDots: this.dataImage.length,
+                    numberOfDots: widget.dataImage.length,
                     photoIndex: this.imageIndex)),
           ),
         ],
@@ -80,10 +73,10 @@ class SelectedImage extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 3.0, right: 3.0),
         child: Container(
-          height: 8.0,
-          width: 8.0,
+          height: 12.0,
+          width: 12.0,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4.0), color: Colors.teal),
+              borderRadius: BorderRadius.circular(8.0), color: Colors.teal),
         ),
       ),
     );
@@ -94,10 +87,10 @@ class SelectedImage extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 5.0, right: 5.0),
         child: Container(
-          height: 10.0,
-          width: 10.0,
+          height: 14.0,
+          width: 14.0,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5.0),
+              borderRadius: BorderRadius.circular(9.0),
               color: Colors.amber,
               boxShadow: [
                 BoxShadow(

@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seel_book_app/src/logic_app/models/Book.dart';
+import 'package:seel_book_app/src/views/screen/articles/panier_article.dart';
 import 'package:seel_book_app/src/views/utils/image_scroll.dart';
+import 'package:seel_book_app/src/views/utils/panier_action.dart';
 
 class BookDetail extends StatefulWidget {
   Book book;
@@ -16,7 +19,13 @@ class _BookDetailState extends State<BookDetail> {
       "image":"assets/images/category_test.png",
     },
     {
-      "image":"assets/images/category_test.png",
+      "image":"assets/images/categories/1.jpg",
+    },
+    {
+      "image":"assets/images/categories/4.jpg",
+    },
+    {
+      "image":"assets/images/categories/6.png",
     },
   ];
   int start_number = 0;
@@ -48,7 +57,12 @@ class _BookDetailState extends State<BookDetail> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Detail du livre"),
+        actions: [
+          PanierActionUI()
+        ],
+
       ),
+
       body: ListView(
         children: [
           //show my image scrool widget
