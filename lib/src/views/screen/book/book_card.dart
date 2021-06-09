@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seel_book_app/src/logic_app/models/Book.dart';
 import 'package:seel_book_app/src/logic_app/models/article_panier.dart';
+import 'package:seel_book_app/src/views/screen/articles/panier_article.dart';
 import 'package:seel_book_app/src/views/screen/book/book_detail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 class BookCard extends StatefulWidget {
@@ -58,6 +59,8 @@ class _BookCardState extends State<BookCard> {
     showMessage('Ajout effectif: consulter le panier');
     String encodeArticle = Article.encode(listArticle);
     await sharedPreferences.setString('panier', encodeArticle);
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>PanierArticle()));
+
   }
 
   bool alreadyExist(List<Article> list, Article article){

@@ -45,15 +45,21 @@ class _ArticleItemState extends State<ArticleItem> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        color: Colors.white70,
+        padding: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          border: Border.all(color: Colors.blueGrey,width: 1),
+          color: Colors.white70,
+        ),
+
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               width: 90,
-              height: 80,
+              height: 90,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(60),
+                  borderRadius: BorderRadius.circular(5),
                   image: DecorationImage(
                       fit: BoxFit.cover, image: AssetImage(this.widget.article.image))),
             ),
@@ -68,7 +74,6 @@ class _ArticleItemState extends State<ArticleItem> {
                   children: [
                     Container(
                       margin: EdgeInsets.all(1),
-                      width: 180,
                       child: Text(
                         this.widget.article.name,
                         style: TextStyle(
@@ -77,6 +82,22 @@ class _ArticleItemState extends State<ArticleItem> {
                             fontFamily: 'Google Sans'),
                       ),
                     ),
+                    SizedBox(width: 45,),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.red.shade900
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left:10.0,right: 10),
+                        child: Text("Categorie",
+                            style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                                fontFamily: 'Google Sans')),
+                      ),
+                    )
                   ],
                 ),
                 Row(

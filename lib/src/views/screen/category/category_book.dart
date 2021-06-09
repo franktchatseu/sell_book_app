@@ -45,7 +45,8 @@ class _CategoryBookState extends State<CategoryBook> {
     new Book(1, "Anaconda", "Frank tchatseu", "coll 41", 1, 5, 200, 4, "assets/images/category_test.png"),
     new Book(2, "Nucleaire", "Nguefack", "Act22", 5, 3, 300, 3, "assets/images/categories/1.jpg"),
     new Book(3, "Tom Fleur", "Frank tchatseu", "coll 41", 1, 5, 200, 4, "assets/images/categories/4.jpg"),
-    new Book(4, "Tiji Team", "Nguefack", "Act22", 5, 3, 300, 3, "assets/images/categories/6.png")
+    new Book(4, "Tiji Team", "Nguefack", "Act22", 5, 3, 300, 3, "assets/images/categories/6.png"),
+
   ];
 
   @override

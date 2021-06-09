@@ -6,7 +6,9 @@ import 'package:seel_book_app/src/views/screen/articles/article_item.dart';
 import 'package:seel_book_app/src/views/screen/articles/panier_article.dart';
 import 'package:seel_book_app/src/views/screen/category/categories_list.dart';
 import 'package:seel_book_app/src/views/screen/category/category_book.dart';
+import 'package:seel_book_app/src/views/screen/payemnt/our_information.dart';
 import 'package:seel_book_app/src/views/utils/panier_action.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(MyApp());

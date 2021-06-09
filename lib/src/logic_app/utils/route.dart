@@ -1,0 +1,1 @@
+const receivedPayementUrl = "https://route-des-chefferies.visibilitycam.com/api/payments/buy";
